@@ -13,11 +13,13 @@ MainWindow::MainWindow(QWidget *parent)
     openCSV.loadQuestion();
 
     numPage = 0;
+    selectedPrinter = openCSV.loadPrinter();
+    ui->printerLabel->setText(selectedPrinter);
 
     player = new QMediaPlayer;
     audioOutput = new QAudioOutput;
     player->setAudioOutput(audioOutput);
-    audioOutput->setVolume(100);
+    audioOutput->setVolume(soundVolume); //set Max =100
 
     player->setSource(QUrl::fromLocalFile("resources/audio/intro.mp3"));
     player->play();
@@ -97,7 +99,7 @@ void MainWindow::nextPage(){
         tie(noQuestion,question,questionType,fileName) = openCSV.questionArr[numPage-1];
         if(questionType.compare("yesno") == 0){
 //            qDebug() << "yesno";
-            question = to_string( noQuestion ) +".) "+question;
+            question = to_string( noQuestion ) +". "+question;
             ui->questionLabel->setText(question.c_str());
             ui->stackedWidget->setCurrentWidget(ui->YesNoQuestionPage);
 
@@ -128,12 +130,14 @@ bool MainWindow::printDocument()
     }
     outputStrPaper+= "</body>";
 
-    QPrinter printer;
-    printer.setPageSize(QPageSize::A4);
 
-    QPrintDialog dialog(&printer,this);
-    dialog.setWindowTitle("Print Document");
-    if( dialog.exec() == QDialog::Rejected) return false;
+    printer.setPageSize(QPageSize::A4);
+    printer.setPrinterName(selectedPrinter);
+
+
+//    QPrintDialog dialog(&printer,this);
+//    dialog.setWindowTitle("Print Document");
+//    if( dialog.exec() == QDialog::Rejected) return false;
 
     QTextDocument document;
     document.setDefaultStyleSheet(" body {font-size: 20px; font-family: Times New Roman,JasmineUPC}");
@@ -141,6 +145,16 @@ bool MainWindow::printDocument()
 
     document.print(&printer);
     return true;
+}
+
+void MainWindow::setSound()
+{
+    if(isSound){
+        audioOutput->setVolume(100);
+    }
+    else{
+        audioOutput->setVolume(0);
+    }
 }
 
 
@@ -192,8 +206,6 @@ void MainWindow::on_exportFile_clicked()
         this->nextPage();
     }
 
-
-
 }
 
 
@@ -223,5 +235,56 @@ void MainWindow::on_printAgain_clicked()
 void MainWindow::on_passPage_clicked()
 {
     this->nextPage();
+}
+
+
+void MainWindow::on_soundControl_clicked()
+{
+    if(isSound){
+        isSound = false;
+        ui->soundControl->setStyleSheet(" border-image: url(resources/image/mute.png);  height: 50px; width: 50px;");
+
+    }
+    else{
+        isSound = true;
+
+        ui->soundControl->setStyleSheet(" border-image: url(resources/image/volume.png);  height: 50px; width: 50px;");
+    }
+    setSound();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->SettingPage);
+}
+
+
+void MainWindow::on_soundSlider_valueChanged(int value)
+{
+   soundVolume = ui->soundSlider->value();
+   ui->soundVolumeLabel->setText(to_string(soundVolume).c_str());
+   audioOutput->setVolume(soundVolume/100.0);
+   if(soundVolume == 0){
+       ui->soundControl->setStyleSheet(" border-image: url(resources/image/mute.png);  height: 50px; width: 50px;");
+   }
+   else{
+       ui->soundControl->setStyleSheet(" border-image: url(resources/image/volume.png);  height: 50px; width: 50px;");
+   }
+
+}
+
+
+void MainWindow::on_printerSettingBtn_clicked()
+{
+
+    QPrintDialog dialog(&printer,this);
+
+    dialog.setWindowTitle("Print Document");
+    if( dialog.exec() == QDialog::Rejected) return;
+    ui->printerLabel->setText(printer.printerName());
+    selectedPrinter =  printer.printerName();
+    openCSV.savePrinter(selectedPrinter);
+
 }
 

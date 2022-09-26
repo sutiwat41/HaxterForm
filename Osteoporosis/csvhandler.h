@@ -20,11 +20,14 @@ public:
     csvhandler();
 
     void loadQuestion();
+    QString loadPrinter();
+    void savePrinter(QString outPrinter);
     void exportCSV();
     bool isNum(const std::string& s);
     int maxPage = 0;
     int maxQuestion = 0;
     string question;
+    QString defaultPrinter = "Microsoft Print to PDF";
 
     vector< tuple<int,string,string,string> > questionArr;
     vector< tuple<int,string> > answerArr;

@@ -356,7 +356,7 @@ release\moc_mainwindow.cpp: ..\Osteoporosis\mainwindow.h \
 		C:\Qt\6.3.1\msvc2019_64\include\QtGui\qpainter.h \
 		release\moc_predefs.h \
 		C:\Qt\6.3.1\msvc2019_64\bin\moc.exe
-	C:\Qt\6.3.1\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug/release/moc_predefs.h" -IC:/Qt/6.3.1/msvc2019_64/mkspecs/win32-msvc -I"C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/Osteoporosis" -IC:/Qt/6.3.1/msvc2019_64/include -IC:/Qt/6.3.1/msvc2019_64/include/QtPrintSupport -IC:/Qt/6.3.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.3.1/msvc2019_64/include/QtMultimedia -IC:/Qt/6.3.1/msvc2019_64/include/QtGui -IC:/Qt/6.3.1/msvc2019_64/include/QtNetwork -IC:/Qt/6.3.1/msvc2019_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt" ..\Osteoporosis\mainwindow.h -o release\moc_mainwindow.cpp
+	C:\Qt\6.3.1\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/export_test/release/moc_predefs.h" -IC:/Qt/6.3.1/msvc2019_64/mkspecs/win32-msvc -I"C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/Osteoporosis" -IC:/Qt/6.3.1/msvc2019_64/include -IC:/Qt/6.3.1/msvc2019_64/include/QtPrintSupport -IC:/Qt/6.3.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.3.1/msvc2019_64/include/QtMultimedia -IC:/Qt/6.3.1/msvc2019_64/include/QtGui -IC:/Qt/6.3.1/msvc2019_64/include/QtNetwork -IC:/Qt/6.3.1/msvc2019_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt" ..\Osteoporosis\mainwindow.h -o release\moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -869,11 +869,27 @@ release\mainwindow.obj: ..\Osteoporosis\mainwindow.cpp ..\Osteoporosis\mainwindo
 		C:\Qt\6.3.1\msvc2019_64\include\QtGui\qinputmethod.h \
 		C:\Qt\6.3.1\msvc2019_64\include\QtCore\qlocale.h \
 		C:\Qt\6.3.1\msvc2019_64\include\QtGui\qguiapplication_platform.h \
-		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\QHBoxLayout \
-		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\QGridLayout \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qgridlayout.h \
 		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qlayout.h \
 		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\QHeaderView \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtGui\qvalidator.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtCore\qregularexpression.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qslider.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qstyle.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\QLabel \
 		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qlabel.h \
 		C:\Qt\6.3.1\msvc2019_64\include\QtGui\qpicture.h \
@@ -888,6 +904,9 @@ release\mainwindow.obj: ..\Osteoporosis\mainwindow.cpp ..\Osteoporosis\mainwindo
 		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qstackedwidget.h \
 		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\QStatusBar \
 		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qstatusbar.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\QTableWidget \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qtablewidget.h \
+		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\qtableview.h \
 		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\QVBoxLayout \
 		C:\Qt\6.3.1\msvc2019_64\include\QtWidgets\QWidget \
 		..\Osteoporosis\csvhandler.h \

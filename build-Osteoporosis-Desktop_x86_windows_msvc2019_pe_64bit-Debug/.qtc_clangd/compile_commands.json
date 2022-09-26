@@ -75,9 +75,9 @@
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\include\\QtCore",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test\\debug",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test",
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\mkspecs\\win32-msvc",
         "/clang:-isystem",
@@ -104,7 +104,7 @@
         "/TP",
         "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\Osteoporosis\\csvhandler.cpp"
     ],
-    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug/.qtc_clangd",
+    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/export_test/.qtc_clangd",
     "file": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/Osteoporosis/csvhandler.cpp"
 },
 {
@@ -183,9 +183,9 @@
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\include\\QtCore",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test\\debug",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test",
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\mkspecs\\win32-msvc",
         "/clang:-isystem",
@@ -212,7 +212,7 @@
         "/TP",
         "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\Osteoporosis\\main.cpp"
     ],
-    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug/.qtc_clangd",
+    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/export_test/.qtc_clangd",
     "file": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/Osteoporosis/main.cpp"
 },
 {
@@ -291,9 +291,9 @@
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\include\\QtCore",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test\\debug",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test",
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\mkspecs\\win32-msvc",
         "/clang:-isystem",
@@ -320,7 +320,7 @@
         "/TP",
         "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\Osteoporosis\\mainwindow.cpp"
     ],
-    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug/.qtc_clangd",
+    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/export_test/.qtc_clangd",
     "file": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/Osteoporosis/mainwindow.cpp"
 },
 {
@@ -399,9 +399,9 @@
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\include\\QtCore",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test\\debug",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test",
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\mkspecs\\win32-msvc",
         "/clang:-isystem",
@@ -428,7 +428,7 @@
         "/TP",
         "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\Osteoporosis\\csvhandler.h"
     ],
-    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug/.qtc_clangd",
+    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/export_test/.qtc_clangd",
     "file": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/Osteoporosis/csvhandler.h"
 },
 {
@@ -507,9 +507,9 @@
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\include\\QtCore",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test\\debug",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test",
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\mkspecs\\win32-msvc",
         "/clang:-isystem",
@@ -536,7 +536,7 @@
         "/TP",
         "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\Osteoporosis\\mainwindow.h"
     ],
-    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug/.qtc_clangd",
+    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/export_test/.qtc_clangd",
     "file": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/Osteoporosis/mainwindow.h"
 },
 {
@@ -615,9 +615,9 @@
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\include\\QtCore",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test\\debug",
         "-I",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug",
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test",
         "-I",
         "C:\\Qt\\6.3.1\\msvc2019_64\\mkspecs\\win32-msvc",
         "/clang:-isystem",
@@ -642,9 +642,9 @@
         "-fmacro-backtrace-limit=0",
         "-ferror-limit=1000",
         "/TP",
-        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\ui_mainwindow.h"
+        "C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev\\export_test\\ui_mainwindow.h"
     ],
-    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug/.qtc_clangd",
-    "file": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/build-Osteoporosis-Desktop_x86_windows_msvc2019_pe_64bit-Debug/ui_mainwindow.h"
+    "directory": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/export_test/.qtc_clangd",
+    "file": "C:/Users/sutiw/OneDrive - Chulalongkorn University/Desktop/haxter document/dev/random_project_cpp/dev-env/dev/export_test/ui_mainwindow.h"
 }
 ]

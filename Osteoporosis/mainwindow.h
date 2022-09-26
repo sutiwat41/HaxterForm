@@ -26,8 +26,15 @@ public:
     ~MainWindow();
 
     int numPage = 0;
+    int soundVolume  = 100;
+    QString selectedPrinter = "Microsoft Print to PDF";
+
+    bool isSound = true;
     void nextPage();
     bool printDocument();
+    void setSound();
+
+    QPrinter printer;
 
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
@@ -54,6 +61,14 @@ private slots:
     void on_printAgain_clicked();
 
     void on_passPage_clicked();
+
+    void on_soundControl_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_soundSlider_valueChanged(int value);
+
+    void on_printerSettingBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

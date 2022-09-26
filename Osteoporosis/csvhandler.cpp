@@ -37,7 +37,35 @@ void csvhandler::loadQuestion()
 
         maxQuestion = static_cast<int>(questionArr.size());
     }
-//    else qDebug() << "failed to load questions";
+    //    else qDebug() << "failed to load questions";
+}
+
+QString csvhandler::loadPrinter()
+{
+    fstream fin;
+    fin.open("resources/config.txt", ios::in);
+    string line, word, temp;
+    QString outPrinter;
+    if(fin.is_open()){
+        while (!fin.eof()) {
+            getline(fin, line);
+//            qDebug() <<"print: " << line.c_str();
+            outPrinter = line.c_str();
+        }
+    }
+    else return defaultPrinter;
+    return outPrinter;
+
+}
+
+void csvhandler::savePrinter(QString outPrinter)
+{
+    fstream fout;
+    string outFileName = "resources/config.txt";
+    fout.open(outFileName,ios::out); // write only
+    fout << outPrinter.toStdString();
+    fout.close();
+
 }
 
 void csvhandler::exportCSV()
@@ -46,7 +74,7 @@ void csvhandler::exportCSV()
     QString strTime =  currentTime.toString("yyyy_MM_dd_hh_mm_ss");
     fstream fout;
     string outFileName = "resources/output/"+strTime.toStdString() + "xxx.csv";
-    fout.open(outFileName,ios::out | ios::app);
+    fout.open(outFileName,ios::out | ios::app); // write + append
 
     fout << "Number" << "," << "Answer" << "\n";
     for(int i = 0;i<maxQuestion;i++){
