@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>766</height>
+    <width>898</width>
+    <height>821</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,9 +57,11 @@ width: 50px;</string>
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(resources/image/previous.png);
+         <string notr="true">
+border-image: url(resources/image/previous.png);
 height: 50px;
-width: 50px;</string>
+width: 50px;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -94,8 +96,7 @@ width: 50px;</string>
         <item>
          <widget class="QLabel" name="label_welcome">
           <property name="styleSheet">
-           <string notr="true">font: 400 100pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+           <string notr="true">font: 400 100pt &quot;JasmineUPC&quot;;</string>
           </property>
           <property name="text">
            <string>สวัสดีค่ะ</string>
@@ -146,17 +147,9 @@ width: 50px;</string>
 
 
   padding: 20px;
-
-  color: #4cc19e;
-   
-  background-color:  rgb(255, 255, 255) ;
+  
 
 
-}
-QPushButton:hover ,pressed{
- color: rgb(255, 255, 255) ;
-background-color:  #4cc19e;
- 
 }
 
 </string>
@@ -168,6 +161,40 @@ background-color:  #4cc19e;
           </item>
           <item>
            <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="playVideoButton">
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	font: 400 60pt &quot;JasmineUPC&quot;;
+   border: 3px solid #4cc19e;
+   border-radius:30px;
+
+
+  padding: 20px;
+  
+
+
+}
+</string>
+            </property>
+            <property name="text">
+             <string>เล่นวิดีโอ</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_14">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -218,9 +245,18 @@ background-color:  #4cc19e;
           <item>
            <widget class="QPushButton" name="pushButton">
             <property name="styleSheet">
-             <string notr="true">border-image: url(resources/image/gear.png);
+             <string notr="true">QPushButton{
+
+border-image: url(resources/image/gear.png);
 height: 50px;
-width: 50px;</string>
+width: 50px;
+}
+
+QPushButton:hover ,pressed{
+background-color:  none;
+ 
+ 
+}</string>
             </property>
             <property name="text">
              <string/>
@@ -272,9 +308,15 @@ width: 50px;</string>
           </item>
           <item>
            <widget class="QLabel" name="questionLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="styleSheet">
              <string notr="true">font: 400 84pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+</string>
             </property>
             <property name="text">
              <string>TextLabel</string>
@@ -340,26 +382,16 @@ width: 50px;</string>
            <widget class="QPushButton" name="yesButton">
             <property name="styleSheet">
              <string notr="true">QPushButton{
-	font: 400 60pt &quot;JasmineUPC&quot;;
-   border: 2px solid rgb(110, 208, 179);
-   border-radius:20px;
-
-
+  font: 400 60pt &quot;JasmineUPC&quot;;
+  border: 2px solid rgb(110, 208, 179);
+  border-radius:20px;
   padding: 15px;
-padding-left: 40px;
-padding-right: 40px;
-  color: rgb(110, 208, 179);
-   
-  background-color:  rgb(255, 255, 255) ;
+  padding-left: 40px;
+  padding-right: 40px;
+
 
 
 }
-QPushButton:hover ,pressed{
- color: rgb(255, 255, 255) ;
-background-color:  rgb(110, 208, 179);
- 
-}
-
 </string>
             </property>
             <property name="text">
@@ -387,22 +419,9 @@ background-color:  rgb(110, 208, 179);
 	font: 400 60pt &quot;JasmineUPC&quot;;
    border: 2px solid rgb(110, 208, 179);
    border-radius:20px;
-
-
   padding: 15px;
-  color: rgb(110, 208, 179);
-   
-  background-color:  rgb(255, 255, 255) ;
 
-
-}
-QPushButton:hover ,pressed{
- color: rgb(255, 255, 255) ;
-background-color:  rgb(110, 208, 179);
- 
-}
-
-</string>
+}</string>
             </property>
             <property name="text">
              <string>ไม่แน่ใจ</string>
@@ -434,16 +453,8 @@ background-color:  rgb(110, 208, 179);
   padding: 15px;
 padding-left: 40px;
 padding-right: 40px;
-  color: rgb(110, 208, 179);
-   
-  background-color:  rgb(255, 255, 255) ;
 
 
-}
-QPushButton:hover ,pressed{
- color: rgb(255, 255, 255) ;
-background-color:  rgb(110, 208, 179);
- 
 }
 
 </string>
@@ -506,8 +517,7 @@ background-color:  rgb(110, 208, 179);
           <item>
            <widget class="QLabel" name="settingLabel">
             <property name="styleSheet">
-             <string notr="true">font: 400 72pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+             <string notr="true">font: 400 72pt &quot;JasmineUPC&quot;;</string>
             </property>
             <property name="text">
              <string>Setting</string>
@@ -553,8 +563,7 @@ background-color:  rgb(110, 208, 179);
           <item>
            <widget class="QLabel" name="soundLabel">
             <property name="styleSheet">
-             <string notr="true">font: 400 36pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+             <string notr="true">font: 400 36pt &quot;JasmineUPC&quot;;</string>
             </property>
             <property name="text">
              <string>Sound</string>
@@ -571,7 +580,7 @@ background-color:  rgb(110, 208, 179);
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>60</width>
               <height>20</height>
              </size>
             </property>
@@ -600,7 +609,7 @@ background-color:  rgb(110, 208, 179);
            <widget class="QLabel" name="soundVolumeLabel">
             <property name="styleSheet">
              <string notr="true">font: 400 36pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+</string>
             </property>
             <property name="text">
              <string>100</string>
@@ -617,7 +626,7 @@ background-color:  rgb(110, 208, 179);
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>60</width>
               <height>20</height>
              </size>
             </property>
@@ -649,8 +658,7 @@ background-color:  rgb(110, 208, 179);
           <item>
            <widget class="QLabel" name="curretPrinterLabel">
             <property name="styleSheet">
-             <string notr="true">font: 400 36pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+             <string notr="true">font: 400 36pt &quot;JasmineUPC&quot;;</string>
             </property>
             <property name="text">
              <string>Current Printer:</string>
@@ -676,8 +684,7 @@ background-color:  rgb(110, 208, 179);
           <item>
            <widget class="QLabel" name="printerLabel">
             <property name="styleSheet">
-             <string notr="true">font: 400 36pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+             <string notr="true">font: 400 36pt &quot;JasmineUPC&quot;;</string>
             </property>
             <property name="text">
              <string>TextLabel</string>
@@ -727,16 +734,9 @@ background-color:  rgb(110, 208, 179);
 
 
   padding: 15px;
-  color: rgb(110, 208, 179);
-   
-  background-color:  rgb(255, 255, 255) ;
 
 
-}
-QPushButton:hover ,pressed{
- color: rgb(255, 255, 255) ;
-background-color:  rgb(110, 208, 179);
- 
+
 }
 
 </string>
@@ -781,8 +781,7 @@ background-color:  rgb(110, 208, 179);
         <item>
          <widget class="QLabel" name="label">
           <property name="styleSheet">
-           <string notr="true">font: 400 72pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+           <string notr="true">font: 400 72pt &quot;JasmineUPC&quot;;</string>
           </property>
           <property name="text">
            <string>สรุปผล</string>
@@ -810,29 +809,25 @@ background-color:  rgb(110, 208, 179);
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <property name="spacing">
+           <number>7</number>
+          </property>
           <item>
-           <spacer name="horizontalSpacer_14">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Preferred</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item alignment="Qt::AlignHCenter">
            <widget class="QTableWidget" name="summaryTable">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>512</width>
+              <height>16777215</height>
+             </size>
             </property>
             <property name="contextMenuPolicy">
              <enum>Qt::DefaultContextMenu</enum>
@@ -841,14 +836,65 @@ background-color:  rgb(110, 208, 179);
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="styleSheet">
-             <string notr="true">font: 400 18pt &quot;JasmineUPC&quot;;
+             <string notr="true">font: 400 36pt &quot;JasmineUPC&quot;;
 </string>
             </property>
-            <property name="textElideMode">
-             <enum>Qt::ElideLeft</enum>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
             </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::AdjustIgnored</enum>
+            </property>
+            <property name="autoScroll">
+             <bool>true</bool>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="dragDropOverwriteMode">
+             <bool>false</bool>
+            </property>
+            <property name="textElideMode">
+             <enum>Qt::ElideMiddle</enum>
+            </property>
+            <property name="verticalScrollMode">
+             <enum>QAbstractItemView::ScrollPerItem</enum>
+            </property>
+            <property name="horizontalScrollMode">
+             <enum>QAbstractItemView::ScrollPerItem</enum>
+            </property>
+            <property name="showGrid">
+             <bool>true</bool>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+            <property name="cornerButtonEnabled">
+             <bool>true</bool>
+            </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="horizontalHeaderMinimumSectionSize">
+             <number>61</number>
+            </attribute>
+            <attribute name="horizontalHeaderDefaultSectionSize">
+             <number>125</number>
+            </attribute>
+            <attribute name="horizontalHeaderHighlightSections">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+             <bool>false</bool>
+            </attribute>
             <attribute name="verticalHeaderVisible">
              <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderHighlightSections">
+             <bool>true</bool>
             </attribute>
             <column>
              <property name="text">
@@ -860,23 +906,17 @@ background-color:  rgb(110, 208, 179);
               <string>คำตอบ</string>
              </property>
             </column>
+            <column>
+             <property name="text">
+              <string>ข้อที่</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>คำตอบ</string>
+             </property>
+            </column>
            </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_15">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Preferred</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
         </item>
@@ -923,18 +963,9 @@ background-color:  rgb(110, 208, 179);
   padding: 15px;
  padding-left: 40px; 
 padding-right: 40px;
-  color: rgb(110, 208, 179);
-   
-  background-color:  rgb(255, 255, 255) ;
 
 
 }
-QPushButton:hover ,pressed{
- color: rgb(255, 255, 255) ;
-background-color:  rgb(110, 208, 179);
- 
-}
-
 </string>
             </property>
             <property name="text">
@@ -965,18 +996,10 @@ background-color:  rgb(110, 208, 179);
 
 
   padding: 15px;
-  color: rgb(110, 208, 179);
-   
-  background-color:  rgb(255, 255, 255) ;
+
 
 
 }
-QPushButton:hover ,pressed{
- color: rgb(255, 255, 255) ;
-background-color:  rgb(110, 208, 179);
- 
-}
-
 </string>
             </property>
             <property name="text">
@@ -1017,6 +1040,34 @@ background-color:  rgb(110, 208, 179);
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="restPage">
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QGroupBox" name="videoPlayerBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>หุ่นยนต์คุณหมอ... น้องกะทิ เกิดจากความร่วมมือในการพัฒนาระหว่างสาขาเวชศาสตร์นิวเคลียร์ ฝ่ายรังสีวิทยา รพ. จุฬาลงกรณ์ และ ศูนย์ภูมิภาคเทคโนโลยีหุ่นยนต์</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="numericQuestionPage">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -1037,8 +1088,7 @@ background-color:  rgb(110, 208, 179);
           <item>
            <widget class="QLabel" name="numericLabel">
             <property name="styleSheet">
-             <string notr="true">font: 400 84pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+             <string notr="true">font: 400 84pt &quot;JasmineUPC&quot;;</string>
             </property>
             <property name="text">
              <string>TextLabel</string>
@@ -1305,8 +1355,7 @@ border: 2px solid rgb(110, 208, 179);
         <item row="1" column="0">
          <widget class="QLabel" name="endLabel">
           <property name="styleSheet">
-           <string notr="true">font: 400 72pt &quot;JasmineUPC&quot;;
- color: #4cc19e;</string>
+           <string notr="true">font: 400 72pt &quot;JasmineUPC&quot;;</string>
           </property>
           <property name="text">
            <string>กรุณานำกระดาษคำตอบ ส่งเจ้าหน้าที่</string>
@@ -1360,16 +1409,9 @@ border: 2px solid rgb(110, 208, 179);
 
 
   padding: 15px;
-  color: rgb(110, 208, 179);
-   
-  background-color:  rgb(255, 255, 255) ;
 
 
-}
-QPushButton:hover ,pressed{
- color: rgb(255, 255, 255) ;
-background-color:  rgb(110, 208, 179);
- 
+
 }
 
 </string>
@@ -1402,18 +1444,10 @@ background-color:  rgb(110, 208, 179);
 
 
   padding: 15px;
-  color: rgb(110, 208, 179);
-   
-  background-color:  rgb(255, 255, 255) ;
+
 
 
 }
-QPushButton:hover ,pressed{
- color: rgb(255, 255, 255) ;
-background-color:  rgb(110, 208, 179);
- 
-}
-
 </string>
             </property>
             <property name="text">
@@ -1463,8 +1497,8 @@ background-color:  rgb(110, 208, 179);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>22</height>
+     <width>898</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

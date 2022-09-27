@@ -1,0 +1,18 @@
+QMainWindow {
+	background-color:  rgb(255, 255, 255) ;
+}
+
+QPushButton { 
+	color: #24a37d;
+	background-color:  rgb(255, 255, 255) ;
+}
+
+QPushButton:hover ,pressed{
+	background-color:  #6ed0b3;
+ 	color: #ffffff ;
+}
+
+
+QLabel{
+	color: #24a37d;	
+}

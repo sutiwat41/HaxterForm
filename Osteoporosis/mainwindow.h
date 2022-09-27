@@ -11,7 +11,7 @@
 #include <QTextEdit>
 #include <QFile>
 #include <QPainter>
-
+#include <QVideoWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,11 +30,18 @@ public:
     QString selectedPrinter = "Microsoft Print to PDF";
 
     bool isSound = true;
+    bool isAudio = true; // true -> audio, false -> video
+
     void nextPage();
     bool printDocument();
     void setSound();
 
+    void writePdf();
+
+
     QPrinter printer;
+
+    QVideoWidget *videoWidget;
 
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
@@ -69,6 +76,8 @@ private slots:
     void on_soundSlider_valueChanged(int value);
 
     void on_printerSettingBtn_clicked();
+
+    void on_playVideoButton_clicked();
 
 private:
     Ui::MainWindow *ui;
