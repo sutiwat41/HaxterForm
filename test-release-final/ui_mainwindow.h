@@ -351,6 +351,7 @@ public:
         questionLabel->setStyleSheet(QString::fromUtf8("\n"
 "font: 400 74pt \"JasmineUPC\";\n"
 ""));
+        questionLabel->setTextFormat(Qt::RichText);
         questionLabel->setAlignment(Qt::AlignCenter);
         questionLabel->setWordWrap(true);
 

@@ -57,6 +57,8 @@ public:
 private slots:
     void playedMusic();
     void mediaAndPage();
+    void showDescription(const QString &link);
+//    void showDescription();
 
 
     void on_startButton_clicked();

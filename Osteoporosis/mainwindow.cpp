@@ -28,8 +28,6 @@ MainWindow::MainWindow(QWidget *parent)
 //    this->setStyleSheet(styleSheet);
     ui->stackedWidget->setStyleSheet(styleSheet);
 
-
-
     //------------------- set up sound -------------------//
     player = new QMediaPlayer;
     audioOutput = new QAudioOutput;
@@ -55,11 +53,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->thankYouImage->setPixmap(thankYouImageFile);
     ui->goodLuckImage->setPixmap(goodluckImageFile);
     ui->godImage->setPixmap(godImageFile);
+
+
+
 //    ui->userName->setGraphicsEffect(effect);
 //    qDebug() << ui->stackedWidget->currentWidget()->objectName().compare("restPage", Qt::CaseInsensitive) ;
 
 //    connect(player,SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(playedMusic()));
+
+    ui->questionLabel->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
+    connect(ui->questionLabel,SIGNAL(linkActivated(QString)),this,SLOT(showDescription(QString))  );
     connect(player,SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(mediaAndPage()));
+
+
 //    connect(audioOutput,SIGNAL(volumeChanged(float)),SLOT(soundDeviceChange()));
     this->showMaximized();
 //    this->showFullScreen();
@@ -138,6 +144,13 @@ void MainWindow::mediaAndPage()
     }
 
 }
+
+void MainWindow::showDescription(const QString &link)
+{
+    qDebug() << "clicked!!!" << link;
+}
+
+
 
 
 
