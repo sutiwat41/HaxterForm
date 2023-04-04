@@ -18,14 +18,17 @@ CONFIG += c++17
 
 SOURCES += \
     csvhandler.cpp \
+    descriptionbox.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     csvhandler.h \
+    descriptionbox.h \
     mainwindow.h
 
 FORMS += \
+    descriptionbox.ui \
     mainwindow.ui
 
 # Default rules for deployment.

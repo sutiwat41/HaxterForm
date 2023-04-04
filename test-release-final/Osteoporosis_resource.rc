@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	"C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev-scale-v3_final\\HaxterForm\\Osteoporosis\\Kati-Face.ico"
+IDI_ICON1	ICON	"C:\\Users\\sutiw\\OneDrive - Chulalongkorn University\\Desktop\\haxter document\\dev\\random_project_cpp\\dev-env\\dev-scale-v3_final\\kati_v2_dev\\Osteoporosis\\Kati-Face.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0

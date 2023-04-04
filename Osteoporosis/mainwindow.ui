@@ -1267,6 +1267,7 @@ padding-right: 40px;
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="HNpage"/>
       <widget class="QWidget" name="restPage">
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>

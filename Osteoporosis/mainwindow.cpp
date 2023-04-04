@@ -43,6 +43,8 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(videoWidget);
     ui->videoPlayerBox->setLayout(layout);
 
+
+
     //------------------- play media --------------------//
     playedMusic();
     QPixmap helloImageFile("resources/image/สวัสดีจ้า น้องกะทิ.png");
@@ -53,6 +55,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->thankYouImage->setPixmap(thankYouImageFile);
     ui->goodLuckImage->setPixmap(goodluckImageFile);
     ui->godImage->setPixmap(godImageFile);
+
+    showBox = new DescriptionBox(this);
+
 
 
 
@@ -148,6 +153,15 @@ void MainWindow::mediaAndPage()
 void MainWindow::showDescription(const QString &link)
 {
     qDebug() << "clicked!!!" << link;
+
+    showBox->updateBox();
+    if (!showBox->isActiveWindow()){
+        showBox->close();
+    }
+    showBox->open();
+
+
+
 }
 
 

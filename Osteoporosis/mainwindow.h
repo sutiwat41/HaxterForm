@@ -17,6 +17,8 @@
 #include <QGraphicsDropShadowEffect>
 
 #include <QGridLayout>
+#include "descriptionbox.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,6 +40,9 @@ public:
     bool isSound = true;
     bool isAudio = false; // true -> audio, false -> video
 
+    bool isDescriptionShow = false;
+
+
     void nextPage();
     bool printDocument();
     void setSound();
@@ -54,12 +59,12 @@ public:
 
     QGraphicsDropShadowEffect *effect;
 
+    DescriptionBox *showBox;
+
 private slots:
     void playedMusic();
     void mediaAndPage();
     void showDescription(const QString &link);
-//    void showDescription();
-
 
     void on_startButton_clicked();
 
@@ -90,6 +95,7 @@ private slots:
 //    void on_playVideoButton_clicked();
 
     void on_videoPlayerBox_clicked();
+
 
 
 private:

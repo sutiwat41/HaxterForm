@@ -123,6 +123,7 @@ public:
     QPushButton *exportFile;
     QSpacerItem *horizontalSpacer_8;
     QSpacerItem *verticalSpacer_8;
+    QWidget *HNpage;
     QWidget *restPage;
     QVBoxLayout *verticalLayout_7;
     QVBoxLayout *verticalLayout_8;
@@ -772,6 +773,9 @@ public:
         verticalLayout_5->addItem(verticalSpacer_8);
 
         stackedWidget->addWidget(summaryPage);
+        HNpage = new QWidget();
+        HNpage->setObjectName(QString::fromUtf8("HNpage"));
+        stackedWidget->addWidget(HNpage);
         restPage = new QWidget();
         restPage->setObjectName(QString::fromUtf8("restPage"));
         verticalLayout_7 = new QVBoxLayout(restPage);
