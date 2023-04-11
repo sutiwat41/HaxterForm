@@ -10,12 +10,11 @@
 #define UI_DESCRIPTIONBOX_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAbstractButton>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 
@@ -29,28 +28,37 @@ public:
     QSpacerItem *horizontalSpacer;
     QLabel *descriptionImage;
     QSpacerItem *horizontalSpacer_2;
-    QDialogButtonBox *buttonBox;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *closeButton;
 
     void setupUi(QDialog *DescriptionBox)
     {
         if (DescriptionBox->objectName().isEmpty())
             DescriptionBox->setObjectName(QString::fromUtf8("DescriptionBox"));
         DescriptionBox->resize(525, 336);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(DescriptionBox->sizePolicy().hasHeightForWidth());
+        DescriptionBox->setSizePolicy(sizePolicy);
         verticalLayout_2 = new QVBoxLayout(DescriptionBox);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(7);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setSizeConstraint(QLayout::SetMinimumSize);
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
         descriptionImage = new QLabel(DescriptionBox);
         descriptionImage->setObjectName(QString::fromUtf8("descriptionImage"));
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(descriptionImage->sizePolicy().hasHeightForWidth());
-        descriptionImage->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Maximum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(descriptionImage->sizePolicy().hasHeightForWidth());
+        descriptionImage->setSizePolicy(sizePolicy1);
         descriptionImage->setStyleSheet(QString::fromUtf8("font: 36pt \"Segoe UI\";"));
 
         horizontalLayout->addWidget(descriptionImage);
@@ -62,17 +70,45 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout);
 
-        buttonBox = new QDialogButtonBox(DescriptionBox);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Close);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(7);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setSizeConstraint(QLayout::SetMinimumSize);
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout_2->addWidget(buttonBox);
+        horizontalLayout_2->addItem(horizontalSpacer_3);
+
+        closeButton = new QPushButton(DescriptionBox);
+        closeButton->setObjectName(QString::fromUtf8("closeButton"));
+        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(closeButton->sizePolicy().hasHeightForWidth());
+        closeButton->setSizePolicy(sizePolicy2);
+        closeButton->setStyleSheet(QString::fromUtf8("QPushButton { \n"
+"padding: 10px;\n"
+"height :40px;\n"
+"width: 70px;\n"
+"   border-radius:10px;\n"
+"font: 400 32pt \"JasmineUPC\";\n"
+"border: 2px solid #E5E5EA;\n"
+"color: rgb(0, 0, 0);\n"
+"background-color:  #E5E5EA ;\n"
+"}\n"
+"\n"
+"QPushButton:hover ,pressed{\n"
+"	background-color:  #D1D1D6;\n"
+"	border: 2px solid #D1D1D6;\n"
+"}\n"
+""));
+
+        horizontalLayout_2->addWidget(closeButton);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_2);
 
 
         retranslateUi(DescriptionBox);
-        QObject::connect(buttonBox, &QDialogButtonBox::accepted, DescriptionBox, qOverload<>(&QDialog::accept));
-        QObject::connect(buttonBox, &QDialogButtonBox::rejected, DescriptionBox, qOverload<>(&QDialog::reject));
 
         QMetaObject::connectSlotsByName(DescriptionBox);
     } // setupUi
@@ -81,6 +117,7 @@ public:
     {
         DescriptionBox->setWindowTitle(QCoreApplication::translate("DescriptionBox", "Dialog", nullptr));
         descriptionImage->setText(QCoreApplication::translate("DescriptionBox", "Test", nullptr));
+        closeButton->setText(QCoreApplication::translate("DescriptionBox", "\340\270\233\340\270\264\340\270\224", nullptr));
     } // retranslateUi
 
 };

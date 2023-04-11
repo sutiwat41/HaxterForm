@@ -5,6 +5,7 @@
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include <QTimer>
+#include <QKeyEvent>
 #include <QPageSize>
 #include <QCursor>
 #include <QPrinter>
@@ -13,12 +14,17 @@
 #include <QFile>
 #include <QPainter>
 #include <QVideoWidget>
+#include <QLabel>
 
 #include <QGraphicsDropShadowEffect>
+#include <QJsonDocument>
+#include <QJsonObject>
+
 
 #include <QGridLayout>
 #include "descriptionbox.h"
 
+#include <QInputMethod>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -39,7 +45,8 @@ public:
 
     bool isSound = true;
     bool isAudio = false; // true -> audio, false -> video
-
+    bool isLoopAudio = true;
+    bool isVideoFirstPage = false;
     bool isDescriptionShow = false;
 
 
@@ -47,11 +54,19 @@ public:
     bool printDocument();
     void setSound();
 
+    void keyPressEvent(QKeyEvent *event);
+    void HNNumPadConnect();
+
+
+    QTimer *m_barcodeTimer; // timer for barcode reader
+    QString barcodeNum = ""; //Read From Barcode will change when read barcode and clear after read finish
+    QString HNNumber= ""; // change when read finish and clear when all process finish
 
     QCursor cursor;
     QString styleSheet;
     QPrinter printer;
 
+    QLabel *imageLabel;
     QVideoWidget *videoWidget;
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
@@ -61,10 +76,26 @@ public:
 
     DescriptionBox *showBox;
 
+    struct questionInfo{
+        int noQuestion;
+        QString question,questionType,audioMainFileName,questionForPrint,resourceJson,NoteForDisplay;
+        QString currentPlaySound;
+        QJsonDocument jsonDocument; // = QJsonDocument::fromJson(resourceJson.toUtf8());
+        QJsonObject jsonObject; // = jsonDocument.object(),innerObj;
+
+    };
+
+    questionInfo currentPageQuestion;
+
+
 private slots:
+    void showBarcode();
+
     void playedMusic();
     void mediaAndPage();
     void showDescription(const QString &link);
+    void closeDescription();
+    void HNNumPressed();
 
     void on_startButton_clicked();
 

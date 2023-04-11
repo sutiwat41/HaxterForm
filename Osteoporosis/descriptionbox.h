@@ -2,6 +2,7 @@
 #define DESCRIPTIONBOX_H
 
 #include <QDialog>
+#include <QPushButton>
 
 namespace Ui {
 class DescriptionBox;
@@ -16,6 +17,8 @@ public:
     ~DescriptionBox();
 
     void updateBox();
+    void updateBox(QString imageFile);
+
 
 private:
     Ui::DescriptionBox *ui;

@@ -37,11 +37,26 @@ MainWindow::MainWindow(QWidget *parent)
 
     //------------------- set up video --------------------//
 
-    videoWidget = new QVideoWidget;
-    QGridLayout *layout;
-    layout = new QGridLayout(this);
-    layout->addWidget(videoWidget);
-    ui->videoPlayerBox->setLayout(layout);
+    if(isVideoFirstPage){
+        videoWidget = new QVideoWidget;
+        QGridLayout *layout;
+        layout = new QGridLayout(this);
+        layout->addWidget(videoWidget);
+        ui->videoPlayerBox->setLayout(layout);
+    }
+    else{
+//        QPixmap pixmap("resources/image/หุ่นยนต์กะทิ HERO II.png"); // Load the image from file
+//        QIcon buttonIcon(pixmap); // Create an icon from the image
+//        ui->videoPlayerBox->setIcon(buttonIcon); // Set the button icon
+//        ui->videoPlayerBox->setIconSize(ui->videoPlayerBox->size()); // Set the icon size to match the button size
+
+
+        ui->videoPlayerBox->setStyleSheet("QPushButton { border-image: url(resources/image/หุ่นยนต์กะทิ HERO II.png) 0 0 0 0 stretch stretch; \
+                                                         border: 2px solid black;\
+                                                         aspect-ratio: 1/1; }");
+
+
+    }
 
 
 
@@ -49,29 +64,35 @@ MainWindow::MainWindow(QWidget *parent)
     playedMusic();
     QPixmap helloImageFile("resources/image/สวัสดีจ้า น้องกะทิ.png");
     QPixmap thankYouImageFile("resources/image/ขอบคุณ กะทิ.png");
-     QPixmap goodluckImageFile("resources/image/เฮง เฮง.png");
-      QPixmap godImageFile("resources/image/บุญรักษา กะทิ.png");
+    QPixmap goodluckImageFile("resources/image/เฮง เฮง.png");
+    QPixmap godImageFile("resources/image/บุญรักษา กะทิ.png");
     ui->helloImage->setPixmap(helloImageFile);
     ui->thankYouImage->setPixmap(thankYouImageFile);
     ui->goodLuckImage->setPixmap(goodluckImageFile);
     ui->godImage->setPixmap(godImageFile);
-
-    showBox = new DescriptionBox(this);
-
-
-
 
 //    ui->userName->setGraphicsEffect(effect);
 //    qDebug() << ui->stackedWidget->currentWidget()->objectName().compare("restPage", Qt::CaseInsensitive) ;
 
 //    connect(player,SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(playedMusic()));
 
-    ui->questionLabel->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
+    // ----------------- set click pop up -------------------//
+    showBox = new DescriptionBox(this);
+    ui->questionLabel->setTextInteractionFlags(Qt::LinksAccessibleByMouse);         //
     connect(ui->questionLabel,SIGNAL(linkActivated(QString)),this,SLOT(showDescription(QString))  );
+    connect(showBox,SIGNAL(rejected()),this,SLOT(closeDescription())); //stop sound when box close
+
+    // ----------------- set audio slot -------------------//
     connect(player,SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(mediaAndPage()));
-
-
 //    connect(audioOutput,SIGNAL(volumeChanged(float)),SLOT(soundDeviceChange()));
+
+    HNNumPadConnect();
+    //------------------- set barcode --------------------//
+    m_barcodeTimer = new QTimer;
+    connect(m_barcodeTimer, SIGNAL(timeout()), this,SLOT(showBarcode()));
+
+//    this->
+    //------------------- set maximum --------------------//
     this->showMaximized();
 //    this->showFullScreen();
 
@@ -87,18 +108,27 @@ void MainWindow::playedMusic()
 {
 //      player->setAudioOutput(audioOutput);
 //    player->stop();
-      string question,questionType,fileName;
+
+     QString fileName;
+
+
     if(isAudio){
-
-        int noQuestion;
-
 
         if(numPage == 0){
 
-            fileName = "intro.mp3";
+            qDebug() << ui->stackedWidget->currentWidget();
+            if(ui->stackedWidget->currentWidget() == ui->HomePage) fileName = "intro.mp3";
+            else if(ui->stackedWidget->currentWidget() == ui->HNpage ){
+                fileName = "barcode_instruction.m4a";
+                qDebug() << "barcode sound";
+            }
         }
         else if(0< numPage && numPage <= openCSV.maxQuestion){
-            tie(noQuestion,question,questionType,fileName) = openCSV.questionArr[numPage-1];
+
+            // for switch sound main <-> description
+            if(showBox->isActiveWindow())  fileName = currentPageQuestion.currentPlaySound;
+            else fileName = currentPageQuestion.audioMainFileName;
+
         }
         else if(numPage == openCSV.maxQuestion+1){
             fileName = "end_01_print.mp3";
@@ -106,20 +136,40 @@ void MainWindow::playedMusic()
         else if(numPage == openCSV.maxQuestion+2){
              fileName = "end_02_edit.mp3";
         }
-        currentTrack = fileName.c_str();
+
+        currentTrack = fileName;
         fileName = "resources/audio/"+fileName;
     }
     else{
         player->stop();
-        fileName = "ความงดงามแห่งการให้.mp4";
-        currentTrack = fileName.c_str();
-        fileName = "resources/video/" + fileName;
-        player->setVideoOutput(videoWidget);
+
+        if(isVideoFirstPage){
+            fileName = "ความงดงามแห่งการให้.mp4";
+            currentTrack = fileName;
+            fileName = "resources/video/" + fileName;
+            player->setVideoOutput(videoWidget);
+        }
+        else{
+            fileName = "ความงดงามแห่งการให้.mp3";
+            currentTrack = fileName;
+            fileName = "resources/audio/"+fileName;
+//            ui->videoPlayerBox->setIcon(QIcon("resources/image/หุ่นยนต์กะทิ HERO II.png"));
+//            QPixmap frontImage("resources/image/หุ่นยนต์กะทิ HERO II.png");
+//            this->imageLabel->setPixmap(frontImage);
+//            imageLabel->setScaledContents(true);
+//            imageLabel->resize(videoWidget->size());
+
+//            // Show the video widget and start playing the video
+//            videoWidget->show();
+
+        }
+
+
     }
 
 //    qDebug() << "played";
 
-    player->setSource(QUrl::fromLocalFile(fileName.c_str()));
+    player->setSource(QUrl::fromLocalFile(fileName));
     player->play();
 
 
@@ -128,23 +178,19 @@ void MainWindow::playedMusic()
 void MainWindow::mediaAndPage()
 {
 //    ui->stackedWidget->currentWidget();
-    if(int(player->playbackState()) == 0){
-//        qDebug() << "1 st layer" <<currentTrack << player->playbackState();
-        if(ui->stackedWidget->currentWidget()->objectName().compare("HomePage", Qt::CaseInsensitive) == 0){
-//            qDebug() << currentTrack << player->playbackState() << int(player->playbackState());
+    if(int(player->playbackState()) == 0){ // loop if audio stopped
 
-            if(currentTrack.compare("ความงดงามแห่งการให้.mp4", Qt::CaseInsensitive) == 0 && int(player->playbackState()) == 0 ){
-                  playedMusic();
+        if(isLoopAudio){
+            if(ui->stackedWidget->currentWidget() == ui->HomePage){
+                 nextPage();
             }
-            else{
-                nextPage();
-                playedMusic();
-            }
-
-//            qDebug() << currentTrack <<  player->playbackState();
+            playedMusic();
         }
         else{
-            playedMusic();
+            if(ui->stackedWidget->currentWidget() == ui->HomePage){
+                playedMusic();
+                isLoopAudio = true;
+            }
         }
     }
 
@@ -154,19 +200,65 @@ void MainWindow::showDescription(const QString &link)
 {
     qDebug() << "clicked!!!" << link;
 
-    showBox->updateBox();
+
+//    QString jsonString = get<1>(openCSV.newQuestionArr[numPage-1])[4].c_str();
+//    jsonString.replace("|",",").replace("\'","\"");
+//    QJsonDocument jsonDocument = QJsonDocument::fromJson(jsonString.toUtf8());
+
+    cursor.setPos(100,100);
+    QJsonObject innerObj;
+    innerObj =  currentPageQuestion.jsonObject[link].toObject();
+    QString image_des_file = innerObj["image"].toString();
+    currentPageQuestion.currentPlaySound = innerObj["sound"].toString();
+    showBox->resize(QSize(100,100));
+    showBox->updateBox("resources/image/description box/"+image_des_file);
     if (!showBox->isActiveWindow()){
         showBox->close();
     }
+
     showBox->open();
 
-
-
+    player->stop();
+    playedMusic();
 }
 
+void MainWindow::closeDescription()
+{
+    player->stop();
+    playedMusic();
+}
+
+void MainWindow::HNNumPressed()
+{
+    QPushButton *tmpBtn = (QPushButton *)sender();
+    if(tmpBtn->objectName() == "hn_confirm"){
+            qDebug() << "confirm";
+
+            ui->HNnumberLabel->setText(this->HNNumber);
+            ui->homeHNLabel->setText(this->HNNumber);
+
+            player->stop();
+            isAudio = true;
+            isLoopAudio = false;
+            ui->stackedWidget->setCurrentWidget(ui->HomePage);
+            playedMusic();
 
 
+    }
+    else if(tmpBtn->objectName() == "hn_delete"){
+        qDebug() << "delete";
+        if(this->HNNumber.size() > 0){
+            this->HNNumber.chop(1);
+            ui->HNnumberLabel->setText(this->HNNumber);
+        }
+    }
+    else{
+        qDebug() << "test" << tmpBtn->text();
+        this->HNNumber += tmpBtn->text();
+        ui->HNnumberLabel->setText(this->HNNumber);
+    }
 
+}
 
 void MainWindow::nextPage(){
     numPage++;
@@ -180,6 +272,8 @@ void MainWindow::nextPage(){
         for(int i = 0;i<openCSV.maxQuestion;i++){
 
                 ui->summaryTable->insertRow(i);
+                //------------------------ get answer from user ---------------------------/
+                // (int,vector<str>): vector<str> question,questionType,audioFileName,questionForPrint,resource,NoteForDisplay;
 
                 string ans ="";
                 if(get<1>(openCSV.answerArr[i]).compare("yes") == 0) ans = "ใช่";
@@ -192,6 +286,7 @@ void MainWindow::nextPage(){
 
                 //double columns
                 int halfNumQuestion = openCSV.maxQuestion/2;
+                if(openCSV.maxQuestion%2 == 1) halfNumQuestion++;
                 ui->summaryTable->setItem(i%halfNumQuestion,0+2*(i/halfNumQuestion), new QTableWidgetItem(to_string( i+1 ).c_str()));
                 ui->summaryTable->setItem(i%halfNumQuestion,1+2*(i/halfNumQuestion), new QTableWidgetItem(ans.c_str()));
                 ui->summaryTable->item(i%halfNumQuestion,0+2*(i/halfNumQuestion))->setTextAlignment(Qt::AlignCenter);
@@ -200,35 +295,42 @@ void MainWindow::nextPage(){
                     ui->summaryTable->item(i%halfNumQuestion,0+2*(i/halfNumQuestion))->setBackground(QColor("#6ed0b3"));
                     ui->summaryTable->item(i%halfNumQuestion,1+2*(i/halfNumQuestion))->setBackground(QColor("#6ed0b3"));
                 }
-
-
         }
-
 //        numPage = 0;
 
     }
     else if(numPage == openCSV.maxQuestion+2){
-//        qDebug() << "last page";
+        qDebug() << "last page";
         ui->stackedWidget->setCurrentWidget(ui->LastPage);
     }
     else{
-        int noQuestion;
-        string question,questionType,fileName;
-        tie(noQuestion,question,questionType,fileName) = openCSV.questionArr[numPage-1];
-        if(questionType.compare("yesno") == 0){
-//            qDebug() << "yesno";
-            question = to_string( noQuestion ) +". "+question;
-            ui->questionLabel->setText(question.c_str());
+
+        // ------------------  get current page info ----------------------------//
+        vector<string> questionVec; // question,questionType,audioFileName,questionForPrint,resource,NoteForDisplay;
+        tie(this->currentPageQuestion.noQuestion, questionVec) = openCSV.newQuestionArr[numPage-1];
+        this->currentPageQuestion.question = questionVec[0].c_str();
+        this->currentPageQuestion.questionType = questionVec[1].c_str();
+        this->currentPageQuestion.audioMainFileName = questionVec[2].c_str();
+        this->currentPageQuestion.resourceJson = questionVec[4].c_str();
+        this->currentPageQuestion.NoteForDisplay =questionVec[5].c_str();
+
+        currentPageQuestion.resourceJson.replace("|",",").replace("\'","\"");
+        currentPageQuestion.jsonDocument = QJsonDocument::fromJson(currentPageQuestion.resourceJson.toUtf8());
+        currentPageQuestion.jsonObject = currentPageQuestion.jsonDocument.object();
+
+
+
+        //----------------------- display question ----------------------------//
+
+        if(currentPageQuestion.questionType.compare("yesno") == 0){
+            currentPageQuestion.question = QString::number( currentPageQuestion.noQuestion)  +  ". "+currentPageQuestion.question;
+            ui->questionLabel->setText(currentPageQuestion.question);
             ui->stackedWidget->setCurrentWidget(ui->YesNoQuestionPage);
-
+            ui->noteLabel->setText(currentPageQuestion.NoteForDisplay);
+//            ui->
 //            ui->progressBar->setValue((int)((numPage-1)*100/openCSV.maxQuestion));
-
         }
     }
-
-
-
-
 
 }
 
@@ -245,8 +347,9 @@ bool MainWindow::printDocument()
  </style> </head><body>";
 
     outputStrPaper = outputStrPaper + "<h1 style =\"text-align: center;\">กระดาษคำตอบ แบบประเมินโอกาสเสี่ยงการเกิดกระดูกหักที่ระยะเวลา 10 ปี </h1>";
-    outputStrPaper = outputStrPaper + "<p style = \"font-size: 22px;\">ชื่อ-นามสกุล………………………………………………………เลขประจำตัวโรงพยาบาล…………………………อายุ………………ปี</p>\
-                                        <p style = \"font-size: 22px;\">เพศ <span> \t </span> หญิง <span> \t  </span> ชาย    น้ำหนัก……………………กิโลกรัม  ส่วนสูง………………………เซนติเมตร</p>";
+    outputStrPaper = outputStrPaper + "<p style = \"font-size: 22px;\"> เลขประจำตัวโรงพยาบาล(HN) "+ this->HNNumber.toStdString();
+//    outputStrPaper = outputStrPaper + "<p style = \"font-size: 22px;\">ชื่อ-นามสกุล………………………………………………………เลขประจำตัวโรงพยาบาล…………………………อายุ………………ปี</p>\
+//                                        <p style = \"font-size: 22px;\">เพศ <span> \t </span> หญิง <span> \t  </span> ชาย    น้ำหนัก……………………กิโลกรัม  ส่วนสูง………………………เซนติเมตร</p>";
     for(int i = 0;i<openCSV.maxQuestion;i++){
 //            qDebug() << i+1 << get<1>(openCSV.answerArr[i]).c_str();
             string ans ="";
@@ -264,7 +367,9 @@ bool MainWindow::printDocument()
                 xAns[1] = "X";
             }
 
-            string question = get<1>(openCSV.questionArr[i]);
+//            get<1>(openCSV.newQuestionArr[i])[0];
+//            string question = get<1>(openCSV.questionArr[i]);
+            string question = get<1>(openCSV.newQuestionArr[i])[3];
             outputStrPaper = outputStrPaper +"<p>" + to_string(i+1) +".  "+question.c_str()+"</p>";
 //            outputStrPaper = outputStrPaper+ "ตอบ" + "\t"+ans.c_str() +"<br>";
             outputStrPaper = outputStrPaper + "<table > <tr> \
@@ -273,8 +378,8 @@ bool MainWindow::printDocument()
                                               <td> <span >   <b style = \"font-size: 18px;\">"+xAns[2].c_str()+"</b>   </span>  ไม่ </td> \
                                               </tr> </table>";
     }
-    outputStrPaper = outputStrPaper +"<p>\tหากท่านต้องการแก้ไขคำตอบ  ท่านสามารถแก้ไขในกระดาษคำตอบนี้ได้ \
-    หากเสร็จเรียบร้อยแล้ว  ให้ท่านส่งกระดาษคำตอบให้กับเจ้าหน้าที่     เพื่อนำข้อมูลไปเข้าโปรแกรมคำนวณโอกาสเสี่ยงการเกิดกระดูกหัก   ต่อไป</p>";
+    outputStrPaper = outputStrPaper +"<p>หากท่านต้องการ<u>แก้ไขคำตอบ</u> ท่านสามารถแก้ไขในกระดาษคำตอบนี้ได้ \
+    เมื่อเสร็จเรียบร้อยแล้ว ให้ท่าน<u>ส่งกระดาษคำตอบให้กับเจ้าหน้าที่</u> เพื่อนำข้อมูลไปเข้าโปรแกรมคำนวณโอกาสเสี่ยงการเกิดกระดูกหักต่อไป</p>";
     outputStrPaper+= "</body></html>";
 
 
@@ -370,6 +475,9 @@ void MainWindow::on_noButton_clicked()
 
 void MainWindow::on_exportFile_clicked()
 {
+    // set HN number
+    openCSV.HNNumber = this->HNNumber;
+
     openCSV.exportCSV();
     if(printDocument()){
         this->nextPage();
@@ -395,6 +503,9 @@ void MainWindow::on_backButton_clicked()
     //    player->stop();
     //    ui->numericDisplay->display(0);
         playedMusic();
+
+        ui->HNnumberLabel->setText("");
+        this->HNNumber = "";
     }
 
 
@@ -481,10 +592,81 @@ void MainWindow::on_printerSettingBtn_clicked()
 
 void MainWindow::on_videoPlayerBox_clicked()
 {
-    isAudio = true;
-//    qDebug() << "clicked";
-    playedMusic();
-    ui->stackedWidget->setCurrentWidget(ui->HomePage);
 
+//    ui->stackedWidget->setCurrentWidget(ui->HomePage);
+    ui->stackedWidget->setCurrentWidget(ui->HNpage);
+    isAudio = true;
+    playedMusic();
+
+}
+
+
+void MainWindow::showBarcode(){
+
+
+//    qDebug() << "time:" << m_barcodeTimer->remainingTime()<< "|" << m_barcodeTimer->timerId();
+    qDebug() << "end: " << this->barcodeNum;
+
+    if( ui->stackedWidget->currentWidget()->objectName().compare(ui->HNpage->objectName(), Qt::CaseInsensitive) == 0){
+         qDebug() << "read: " << this->barcodeNum;
+         ui->HNnumberLabel->setText(this->barcodeNum);
+         ui->homeHNLabel->setText(this->barcodeNum);
+         this->HNNumber = this->barcodeNum;
+
+
+         player->stop();
+         isAudio = true;
+         isLoopAudio = false;
+         ui->stackedWidget->setCurrentWidget(ui->HomePage);
+         playedMusic();
+
+
+    }
+
+//    i)
+    this->m_barcodeTimer->stop();
+    this->barcodeNum = "";
+}
+
+
+void MainWindow::keyPressEvent(QKeyEvent *event){
+
+    if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
+//        qDebug()  << "end:" <<event->text();
+    }
+    else   {
+//        qDebug()  << event->text();
+        barcodeNum+= event->text();
+        if(this->m_barcodeTimer->isActive()){
+            this->m_barcodeTimer->stop();
+            this->m_barcodeTimer->start(50);
+//            qDebug() << "stop";
+        }
+        else {
+//            qDebug() << this->m_barcodeTimer->isActive() << "start";
+            this->m_barcodeTimer->start(50);
+        }
+    }
+
+
+
+}
+
+void MainWindow::HNNumPadConnect()
+{
+//    ui->
+    for(int i =0;i<10;i++){
+        QString btnName = "hn_"+QString::number(i);
+        QPushButton* tmpBtn;
+        tmpBtn = MainWindow::findChild<QPushButton *>(btnName);
+        connect(tmpBtn,SIGNAL(released()),this,SLOT(HNNumPressed()));
+    }
+    QString btnName = "hn_confirm";
+    QPushButton* tmpBtn = MainWindow::findChild<QPushButton *>(btnName);
+    connect(tmpBtn,SIGNAL(released()),this,SLOT(HNNumPressed()));
+
+    QString btnName2 = "hn_delete";
+    QPushButton* tmpBtn2 = MainWindow::findChild<QPushButton *>(btnName2);
+    connect(tmpBtn2,SIGNAL(released()),this,SLOT(HNNumPressed()));
 }
 
