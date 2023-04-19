@@ -337,10 +337,13 @@ bool MainWindow::printDocument()
 {
     string outputStrPaper = "<html>";
     outputStrPaper = outputStrPaper + "<meta name=\"qrichtext\" content=1>";
-    outputStrPaper = outputStrPaper + " <head> <style> table, tr, td {font-size: 12pt; padding:1pt; vertical-align: middle; border: 1px; border-style: solid; border-collapse: collapse;   cellspacing='0'; }\
-            span {    height: 12pt;  width: 10pt; background-color: #ddd; border: 1px; border-color:black; border-style: solid; \
-              padding-left:2pt; padding-right:2pt;  \
-                border-collapse: collapse;  border-radius: 1pt; \
+    outputStrPaper = outputStrPaper + " <head> <style> table, tr, td {font-size: 12pt; padding:1px; \
+                   vertical-align: middle; border: 1px; border-style: solid; border-collapse: collapse;   cellspacing='0'; }\
+            span {   height: 8pt; width: 10pt; background-color: #ddd;   \
+                    margin-top:1px; margin-bottom:1px; \
+                    padding-left:2pt; padding-right:2pt; \
+                    border-color:black; border-style: solid; border: 1pt;  \
+                    border-collapse: collapse;  \
               }    \
              #tableA {  border: 1px; border-style: solid; border-collapse: collapse;  }       \
  </style> </head><body>";
@@ -371,7 +374,7 @@ bool MainWindow::printDocument()
             string question = get<1>(openCSV.newQuestionArr[i])[3];
             outputStrPaper = outputStrPaper +"<p>" + to_string(i+1) +".  "+question.c_str()+"</p>";
             outputStrPaper = outputStrPaper + "<table > <tr> \
-                                              <td> <span>    <b style = \"font-size: 10pt;\">"+xAns[0].c_str()+"</b >   </span> ใช่ </td> \
+                                              <td> <span >    <b style = \"font-size: 10pt;\">"+xAns[0].c_str()+"</b >   </span> ใช่ </td> \
                                               <td> <span >   <b style = \"font-size: 10pt;\">"+xAns[1].c_str()+"</b>   </span> ไม่แน่ใจ </td> \
                                               <td> <span >   <b style = \"font-size: 10pt;\">"+xAns[2].c_str()+"</b>   </span>  ไม่ </td> \
                                               </tr> </table>";
@@ -402,7 +405,7 @@ bool MainWindow::printDocument()
     document.setDocumentMargin(1);
     printer.setPageSize(QPageSize::A4);
     //    printer.setPageSize(QPageSize::Letter);
-//    printer.setPageMargins(QMarginsF(0, -10, 1, 0));
+    printer.setPageMargins(QMarginsF(0, -10, 1, 0));
 
     document.print(&printer);
 
