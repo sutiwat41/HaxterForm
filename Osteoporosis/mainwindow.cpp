@@ -52,8 +52,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
         ui->videoPlayerBox->setStyleSheet("QPushButton { border-image: url(resources/image/หุ่นยนต์กะทิ HERO II.png) 0 0 0 0 stretch stretch; \
-                                                         border: 2px solid black;\
-                                                         aspect-ratio: 1/1; }");
+                                                         border: 2px solid black;}");
 
 
     }
@@ -93,8 +92,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 //    this->
     //------------------- set maximum --------------------//
-    this->showMaximized();
-//    this->showFullScreen();
+//    this->showMaximized();
+    this->showFullScreen();
 
 }
 
@@ -338,20 +337,22 @@ bool MainWindow::printDocument()
 {
     string outputStrPaper = "<html>";
     outputStrPaper = outputStrPaper + "<meta name=\"qrichtext\" content=1>";
-    outputStrPaper = outputStrPaper + " <head> <style> table, tr, td {font-size: 18x; padding:2px; vertical-align: middle; border: 1px; border-style: solid; border-collapse: collapse;   cellspacing='0'; }\
-            span {    height: 10px;  width: 10px; background-color: #ddd; border: 1px; border-color:black; border-style: solid; \
-              padding-left:2px; padding-right:2px;  \
-                border-collapse: collapse;  border-radius: 3px; \
+    outputStrPaper = outputStrPaper + " <head> <style> table, tr, td {font-size: 12pt; padding:1pt; vertical-align: middle; border: 1px; border-style: solid; border-collapse: collapse;   cellspacing='0'; }\
+            span {    height: 12pt;  width: 10pt; background-color: #ddd; border: 1px; border-color:black; border-style: solid; \
+              padding-left:2pt; padding-right:2pt;  \
+                border-collapse: collapse;  border-radius: 1pt; \
               }    \
              #tableA {  border: 1px; border-style: solid; border-collapse: collapse;  }       \
  </style> </head><body>";
 
     outputStrPaper = outputStrPaper + "<h1 style =\"text-align: center;\">กระดาษคำตอบ แบบประเมินโอกาสเสี่ยงการเกิดกระดูกหักที่ระยะเวลา 10 ปี </h1>";
-    outputStrPaper = outputStrPaper + "<p style = \"font-size: 22px;\"> เลขประจำตัวโรงพยาบาล(HN) "+ this->HNNumber.toStdString();
-//    outputStrPaper = outputStrPaper + "<p style = \"font-size: 22px;\">ชื่อ-นามสกุล………………………………………………………เลขประจำตัวโรงพยาบาล…………………………อายุ………………ปี</p>\
-//                                        <p style = \"font-size: 22px;\">เพศ <span> \t </span> หญิง <span> \t  </span> ชาย    น้ำหนัก……………………กิโลกรัม  ส่วนสูง………………………เซนติเมตร</p>";
+    outputStrPaper = outputStrPaper + "<p style = \"font-size: 16pt;\"> เลขประจำตัวโรงพยาบาล(HN) "+ this->HNNumber.toStdString();
+
+//    outputStrPaper = outputStrPaper + "<p style = \"font-size: 22pt;\">ชื่อ-นามสกุล………………………………………………………เลขประจำตัวโรงพยาบาล…………………………อายุ………………ปี</p>\
+//                                        <p style = \"font-size: 22pt;\">เพศ <span> \t </span> หญิง <span> \t  </span> ชาย    น้ำหนัก……………………กิโลกรัม  ส่วนสูง………………………เซนติเมตร</p>";
+
+
     for(int i = 0;i<openCSV.maxQuestion;i++){
-//            qDebug() << i+1 << get<1>(openCSV.answerArr[i]).c_str();
             string ans ="";
             vector<string> xAns = {" "," "," "};
             if(get<1>(openCSV.answerArr[i]).compare("yes") == 0) {
@@ -367,15 +368,12 @@ bool MainWindow::printDocument()
                 xAns[1] = "X";
             }
 
-//            get<1>(openCSV.newQuestionArr[i])[0];
-//            string question = get<1>(openCSV.questionArr[i]);
             string question = get<1>(openCSV.newQuestionArr[i])[3];
             outputStrPaper = outputStrPaper +"<p>" + to_string(i+1) +".  "+question.c_str()+"</p>";
-//            outputStrPaper = outputStrPaper+ "ตอบ" + "\t"+ans.c_str() +"<br>";
             outputStrPaper = outputStrPaper + "<table > <tr> \
-                                              <td> <span>    <b style = \"font-size: 18px;\">"+xAns[0].c_str()+"</b >   </span> ใช่ </td> \
-                                              <td> <span >   <b style = \"font-size: 18px;\">"+xAns[1].c_str()+"</b>   </span> ไม่แน่ใจ </td> \
-                                              <td> <span >   <b style = \"font-size: 18px;\">"+xAns[2].c_str()+"</b>   </span>  ไม่ </td> \
+                                              <td> <span>    <b style = \"font-size: 10pt;\">"+xAns[0].c_str()+"</b >   </span> ใช่ </td> \
+                                              <td> <span >   <b style = \"font-size: 10pt;\">"+xAns[1].c_str()+"</b>   </span> ไม่แน่ใจ </td> \
+                                              <td> <span >   <b style = \"font-size: 10pt;\">"+xAns[2].c_str()+"</b>   </span>  ไม่ </td> \
                                               </tr> </table>";
     }
     outputStrPaper = outputStrPaper +"<p>หากท่านต้องการ<u>แก้ไขคำตอบ</u> ท่านสามารถแก้ไขในกระดาษคำตอบนี้ได้ \
@@ -383,8 +381,7 @@ bool MainWindow::printDocument()
     outputStrPaper+= "</body></html>";
 
 
-    printer.setPageSize(QPageSize::A4);
-//    printer.setPageSize(QPageSize::Letter);
+
 
     printer.setFullPage(true);
     printer.setPrinterName(selectedPrinter);
@@ -395,9 +392,8 @@ bool MainWindow::printDocument()
 //    if( dialog.exec() == QDialog::Rejected) return false;
 
     QTextDocument document;
-//    document.setPageSize(QSizeF(595,842));
-//    document.setDefaultStyleSheet(" body {font-size: 20px; font-family: Times New Roman,JasmineUPC}");
-    document.setDefaultStyleSheet(" body {font-size: 18px; font-family:TH Sarabun New} h1 {font-size: 30 px;} p {font-size: 18px;}");
+
+    document.setDefaultStyleSheet(" body {font-size: 12pt; font-family:TH Sarabun New} h1 {font-size: 20pt;} p {font-size: 12pt;} b {font-size:12pt;}");
     document.setHtml(outputStrPaper.c_str());
 
 //    document.setDocumentMargin(2);
@@ -405,10 +401,8 @@ bool MainWindow::printDocument()
 
     document.setDocumentMargin(1);
     printer.setPageSize(QPageSize::A4);
-//    printer.setPageSize(QPageSize::Legal);
-
-    printer.setPageMargins(QMarginsF(0, -10, 1, 0));
-
+    //    printer.setPageSize(QPageSize::Letter);
+//    printer.setPageMargins(QMarginsF(0, -10, 1, 0));
 
     document.print(&printer);
 
@@ -668,5 +662,11 @@ void MainWindow::HNNumPadConnect()
     QString btnName2 = "hn_delete";
     QPushButton* tmpBtn2 = MainWindow::findChild<QPushButton *>(btnName2);
     connect(tmpBtn2,SIGNAL(released()),this,SLOT(HNNumPressed()));
+}
+
+
+void MainWindow::on_closeProgramBtn_pressed()
+{
+    QMainWindow::close();
 }
 

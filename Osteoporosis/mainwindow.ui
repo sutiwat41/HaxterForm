@@ -97,7 +97,7 @@ width: 50px;
        <string notr="true">background-color:rgb(255, 255, 255);</string>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="HomePage">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -883,6 +883,45 @@ QSlider {
             </property>
             <property name="text">
              <string>set printer</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_53">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::MinimumExpanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="closeProgramBtn">
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+   font: 400 36pt &quot;JasmineUPC&quot;;
+   border: 2px solid #FF7F70;
+	color: #FF7F70 ;
+   border-radius:20px;
+   padding: 15px;
+}
+
+QPushButton:hover ,pressed{
+	background-color:  #FF7F70;
+	border: 2px solid #FF3B30;
+ 	color: #ffffff ;
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Close</string>
             </property>
            </widget>
           </item>
@@ -1905,30 +1944,42 @@ QPushButton:hover ,pressed{
       <widget class="QWidget" name="restPage">
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_23">
-          <item>
-           <spacer name="horizontalSpacer_50">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_51">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Minimum</enum>
+             <enum>QSizePolicy::MinimumExpanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>100</width>
+              <width>200</width>
               <height>20</height>
              </size>
             </property>
            </spacer>
           </item>
-          <item>
+          <item row="0" column="1">
            <widget class="QPushButton" name="videoPlayerBox">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-              <horstretch>0</horstretch>
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>1</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>512</width>
+              <height>512</height>
+             </size>
             </property>
             <property name="styleSheet">
              <string notr="true"/>
@@ -1938,17 +1989,17 @@ QPushButton:hover ,pressed{
             </property>
            </widget>
           </item>
-          <item>
-           <spacer name="horizontalSpacer_51">
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer_50">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Minimum</enum>
+             <enum>QSizePolicy::MinimumExpanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>100</width>
+              <width>200</width>
               <height>20</height>
              </size>
             </property>
@@ -1987,7 +2038,7 @@ QPushButton:hover ,pressed{
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>100</width>
               <height>20</height>
              </size>
             </property>
@@ -2005,7 +2056,7 @@ QPushButton:hover ,pressed{
              <string notr="true">font: 400 28pt &quot;JasmineUPC&quot;;</string>
             </property>
             <property name="text">
-             <string/>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;หุ่นยนต์...น้องกะทิ&lt;/span&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;เกิดจากความร่วมมือระหว่าง สาขาเวชศาสตร์นิวเคลียร์ ภาควิชารังสีวิทยา คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย &lt;br/&gt;และ ศูนย์เทคโนโลยีหุ่นยนต์ คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย&lt;br/&gt;ขอขอบพระคุณ ศ.นพ. ฉัตรเลิศ พงษ์ไชยกุล คณะแพทยศาสตร์ มหาวิทยาลัยขอนแก่น สำหรับคำแนะนำเกี่ยวกับแบบประเมิน&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -2022,7 +2073,7 @@ QPushButton:hover ,pressed{
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>100</width>
               <height>20</height>
              </size>
             </property>

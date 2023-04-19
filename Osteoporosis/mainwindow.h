@@ -129,6 +129,8 @@ private slots:
 
 
 
+    void on_closeProgramBtn_pressed();
+
 private:
     Ui::MainWindow *ui;
 

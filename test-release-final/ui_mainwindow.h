@@ -103,6 +103,8 @@ public:
     QHBoxLayout *horizontalLayout_15;
     QSpacerItem *horizontalSpacer_33;
     QPushButton *printerSettingBtn;
+    QSpacerItem *horizontalSpacer_53;
+    QPushButton *closeProgramBtn;
     QSpacerItem *horizontalSpacer_34;
     QSpacerItem *verticalSpacer_14;
     QWidget *summaryPage;
@@ -161,10 +163,10 @@ public:
     QSpacerItem *verticalSpacer_22;
     QWidget *restPage;
     QVBoxLayout *verticalLayout_7;
-    QHBoxLayout *horizontalLayout_23;
-    QSpacerItem *horizontalSpacer_50;
-    QPushButton *videoPlayerBox;
+    QGridLayout *gridLayout_2;
     QSpacerItem *horizontalSpacer_51;
+    QPushButton *videoPlayerBox;
+    QSpacerItem *horizontalSpacer_50;
     QSpacerItem *verticalSpacer_15;
     QHBoxLayout *horizontalLayout_16;
     QSpacerItem *horizontalSpacer_15;
@@ -656,6 +658,29 @@ public:
 ""));
 
         horizontalLayout_15->addWidget(printerSettingBtn);
+
+        horizontalSpacer_53 = new QSpacerItem(40, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
+
+        horizontalLayout_15->addItem(horizontalSpacer_53);
+
+        closeProgramBtn = new QPushButton(SettingPage);
+        closeProgramBtn->setObjectName(QString::fromUtf8("closeProgramBtn"));
+        closeProgramBtn->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"   font: 400 36pt \"JasmineUPC\";\n"
+"   border: 2px solid #FF7F70;\n"
+"	color: #FF7F70 ;\n"
+"   border-radius:20px;\n"
+"   padding: 15px;\n"
+"}\n"
+"\n"
+"QPushButton:hover ,pressed{\n"
+"	background-color:  #FF7F70;\n"
+"	border: 2px solid #FF3B30;\n"
+" 	color: #ffffff ;\n"
+"}\n"
+""));
+
+        horizontalLayout_15->addWidget(closeProgramBtn);
 
         horizontalSpacer_34 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -1216,26 +1241,31 @@ public:
         restPage->setObjectName(QString::fromUtf8("restPage"));
         verticalLayout_7 = new QVBoxLayout(restPage);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        horizontalLayout_23 = new QHBoxLayout();
-        horizontalLayout_23->setObjectName(QString::fromUtf8("horizontalLayout_23"));
-        horizontalSpacer_50 = new QSpacerItem(100, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        horizontalSpacer_51 = new QSpacerItem(200, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
 
-        horizontalLayout_23->addItem(horizontalSpacer_50);
+        gridLayout_2->addItem(horizontalSpacer_51, 0, 2, 1, 1);
 
         videoPlayerBox = new QPushButton(restPage);
         videoPlayerBox->setObjectName(QString::fromUtf8("videoPlayerBox"));
-        sizePolicy5.setHeightForWidth(videoPlayerBox->sizePolicy().hasHeightForWidth());
-        videoPlayerBox->setSizePolicy(sizePolicy5);
+        QSizePolicy sizePolicy8(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy8.setHorizontalStretch(1);
+        sizePolicy8.setVerticalStretch(0);
+        sizePolicy8.setHeightForWidth(videoPlayerBox->sizePolicy().hasHeightForWidth());
+        videoPlayerBox->setSizePolicy(sizePolicy8);
+        videoPlayerBox->setMinimumSize(QSize(0, 0));
+        videoPlayerBox->setBaseSize(QSize(512, 512));
         videoPlayerBox->setStyleSheet(QString::fromUtf8(""));
 
-        horizontalLayout_23->addWidget(videoPlayerBox);
+        gridLayout_2->addWidget(videoPlayerBox, 0, 1, 1, 1);
 
-        horizontalSpacer_51 = new QSpacerItem(100, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+        horizontalSpacer_50 = new QSpacerItem(200, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
 
-        horizontalLayout_23->addItem(horizontalSpacer_51);
+        gridLayout_2->addItem(horizontalSpacer_50, 0, 0, 1, 1);
 
 
-        verticalLayout_7->addLayout(horizontalLayout_23);
+        verticalLayout_7->addLayout(gridLayout_2);
 
         verticalSpacer_15 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
@@ -1244,7 +1274,7 @@ public:
         horizontalLayout_16 = new QHBoxLayout();
         horizontalLayout_16->setObjectName(QString::fromUtf8("horizontalLayout_16"));
         horizontalLayout_16->setContentsMargins(-1, 0, -1, -1);
-        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+        horizontalSpacer_15 = new QSpacerItem(100, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         horizontalLayout_16->addItem(horizontalSpacer_15);
 
@@ -1257,7 +1287,7 @@ public:
 
         horizontalLayout_16->addWidget(label_2);
 
-        horizontalSpacer_35 = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+        horizontalSpacer_35 = new QSpacerItem(100, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         horizontalLayout_16->addItem(horizontalSpacer_35);
 
@@ -1540,7 +1570,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1567,6 +1597,7 @@ public:
         curretPrinterLabel->setText(QCoreApplication::translate("MainWindow", "Current Printer:", nullptr));
         printerLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         printerSettingBtn->setText(QCoreApplication::translate("MainWindow", "set printer", nullptr));
+        closeProgramBtn->setText(QCoreApplication::translate("MainWindow", "Close", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\340\270\252\340\270\243\340\270\270\340\270\233\340\270\234\340\270\245", nullptr));
         godImage->setText(QString());
         QTableWidgetItem *___qtablewidgetitem = summaryTable->horizontalHeaderItem(0);
@@ -1595,7 +1626,10 @@ public:
         hn_8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
         hn_9->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
         videoPlayerBox->setText(QString());
-        label_2->setText(QString());
+        label_2->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">\340\270\253\340\270\270\340\271\210\340\270\231\340\270\242\340\270\231\340\270\225\340\271\214...\340\270\231\340\271\211\340\270\255\340\270\207\340\270\201\340\270\260\340\270\227\340\270\264</span><span style=\" font-size:36pt;\"><br/></span><br/><span style=\" font-size:24pt;\">\340\271\200\340\270\201\340\270\264\340\270\224\340\270\210\340\270\262\340\270\201\340\270\204\340\270\247\340\270\262\340\270\241\340\270\243\340\271\210\340\270\247\340\270\241\340\270\241\340\270\267\340\270\255\340\270\243\340\270\260\340\270\253\340\270\247\340\271\210\340\270\262\340\270\207 \340\270\252\340\270\262\340\270\202\340\270\262\340\271\200\340\270\247\340\270\212\340\270\250\340\270\262\340\270\252\340\270\225\340\270\243\340\271\214\340\270\231\340\270\264\340\270\247\340\271\200\340\270\204\340\270\245\340\270\265\340\270\242\340\270\243\340\271\214 \340\270\240\340\270\262\340\270\204\340\270\247\340\270\264\340\270\212\340\270\262\340\270"
+                        "\243\340\270\261\340\270\207\340\270\252\340\270\265\340\270\247\340\270\264\340\270\227\340\270\242\340\270\262 \340\270\204\340\270\223\340\270\260\340\271\201\340\270\236\340\270\227\340\270\242\340\270\250\340\270\262\340\270\252\340\270\225\340\270\243\340\271\214 \340\270\210\340\270\270\340\270\254\340\270\262\340\270\245\340\270\207\340\270\201\340\270\243\340\270\223\340\271\214\340\270\241\340\270\253\340\270\262\340\270\247\340\270\264\340\270\227\340\270\242\340\270\262\340\270\245\340\270\261\340\270\242 <br/>\340\271\201\340\270\245\340\270\260 \340\270\250\340\270\271\340\270\231\340\270\242\340\271\214\340\271\200\340\270\227\340\270\204\340\271\202\340\270\231\340\271\202\340\270\245\340\270\242\340\270\265\340\270\253\340\270\270\340\271\210\340\270\231\340\270\242\340\270\231\340\270\225\340\271\214 \340\270\204\340\270\223\340\270\260\340\270\247\340\270\264\340\270\250\340\270\247\340\270\201\340\270\243\340\270\243\340\270\241\340\270\250\340\270\262\340\270\252\340\270\225\340\270\243\340"
+                        "\271\214 \340\270\210\340\270\270\340\270\254\340\270\262\340\270\245\340\270\207\340\270\201\340\270\243\340\270\223\340\271\214\340\270\241\340\270\253\340\270\262\340\270\247\340\270\264\340\270\227\340\270\242\340\270\262\340\270\245\340\270\261\340\270\242<br/>\340\270\202\340\270\255\340\270\202\340\270\255\340\270\232\340\270\236\340\270\243\340\270\260\340\270\204\340\270\270\340\270\223 \340\270\250.\340\270\231\340\270\236. \340\270\211\340\270\261\340\270\225\340\270\243\340\271\200\340\270\245\340\270\264\340\270\250 \340\270\236\340\270\207\340\270\251\340\271\214\340\271\204\340\270\212\340\270\242\340\270\201\340\270\270\340\270\245 \340\270\204\340\270\223\340\270\260\340\271\201\340\270\236\340\270\227\340\270\242\340\270\250\340\270\262\340\270\252\340\270\225\340\270\243\340\271\214 \340\270\241\340\270\253\340\270\262\340\270\247\340\270\264\340\270\227\340\270\242\340\270\262\340\270\245\340\270\261\340\270\242\340\270\202\340\270\255\340\270\231\340\271\201\340\270\201\340\271\210\340\270"
+                        "\231 \340\270\252\340\270\263\340\270\253\340\270\243\340\270\261\340\270\232\340\270\204\340\270\263\340\271\201\340\270\231\340\270\260\340\270\231\340\270\263\340\271\200\340\270\201\340\270\265\340\271\210\340\270\242\340\270\247\340\270\201\340\270\261\340\270\232\340\271\201\340\270\232\340\270\232\340\270\233\340\270\243\340\270\260\340\271\200\340\270\241\340\270\264\340\270\231</span></p></body></html>", nullptr));
         numericLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         num_2->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
         num_9->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
