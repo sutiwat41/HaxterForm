@@ -172,6 +172,7 @@ public:
     QSpacerItem *horizontalSpacer_15;
     QLabel *label_2;
     QSpacerItem *horizontalSpacer_35;
+    QSpacerItem *verticalSpacer_24;
     QWidget *numericQuestionPage;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_7;
@@ -1291,6 +1292,10 @@ public:
 
 
         verticalLayout_7->addLayout(horizontalLayout_16);
+
+        verticalSpacer_24 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Maximum);
+
+        verticalLayout_7->addItem(verticalSpacer_24);
 
         stackedWidget->addWidget(restPage);
         numericQuestionPage = new QWidget();

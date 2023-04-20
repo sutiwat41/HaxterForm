@@ -66,10 +66,12 @@ MainWindow::MainWindow(QWidget *parent)
     QPixmap goodluckImageFile("resources/image/เฮง เฮง.png");
     QPixmap godImageFile("resources/image/บุญรักษา กะทิ.png");
     ui->helloImage->setPixmap(helloImageFile);
-    ui->thankYouImage->setPixmap(thankYouImageFile);
+    ui->thankYouImage->setPixmap(thankYouImageFile);   
     ui->goodLuckImage->setPixmap(goodluckImageFile);
     ui->godImage->setPixmap(godImageFile);
 
+
+//     qDebug() << godImageFile.size() << "|" <<  godImageFile.scaled(godImageFile.size()/1.25).size();
 //    ui->userName->setGraphicsEffect(effect);
 //    qDebug() << ui->stackedWidget->currentWidget()->objectName().compare("restPage", Qt::CaseInsensitive) ;
 
@@ -92,6 +94,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     //------------------- set scale size --------------------//
     this->editScaleToFULL();
+    // temp scale
+    qreal pixelRatio = this->devicePixelRatio();
+    if(pixelRatio!=1){
+        goodluckImageFile = goodluckImageFile.scaled(goodluckImageFile.size()/pixelRatio);
+        ui->goodLuckImage->setPixmap(goodluckImageFile);
+
+        godImageFile = godImageFile.scaled(godImageFile.size()/pixelRatio);
+        ui->godImage->setPixmap(godImageFile);
+
+        qDebug() << ui->summaryTable->columnWidth(0) << "|" << ui->summaryTable->columnCount();
+    }
+
+
+
 
     //------------------- set maximum --------------------//
 //    this->showMaximized();
@@ -254,7 +270,7 @@ void MainWindow::HNNumPressed()
         }
     }
     else{
-        qDebug() << "test" << tmpBtn->text();
+//        qDebug() << "test" << tmpBtn->text();
         this->HNNumber += tmpBtn->text();
         ui->HNnumberLabel->setText(this->HNNumber);
     }
@@ -291,15 +307,17 @@ void MainWindow::editScaleToFULL()
                                   padding: 15px;                    \
                                 }");
 
+        ui->passPage->setStyleSheet(ui->yesButton->styleSheet());
+        ui->exportFile->setStyleSheet( ui->notSureButton->styleSheet() );
+
         ui->summaryTable->setStyleSheet("font: 400 "+QString::number(36/pixelRatio)+"pt \"JasmineUPC\"; text-align: center; \
                         padding-right:"+QString::number(10/pixelRatio)+"px; \
                         QHeaderView::section { padding-right: "+QString::number(50/pixelRatio)+"px; \
                         background-color: #6ed0b3;}");
-//        ui->summaryTable->setStyleSheet("        font: 400 "+QString::number(36/pixelRatio)+"pt \" JasmineUPC\"; \
-//                                                text-align: center;");
 
-        qDebug() << ui->godImage->size();
-
+        for(int col = 0; col < ui->summaryTable->columnCount();col+=2){
+            ui->summaryTable->setColumnWidth(col,(int)( ui->summaryTable->columnWidth(col)/pixelRatio) );
+        }
 
     }
 }
