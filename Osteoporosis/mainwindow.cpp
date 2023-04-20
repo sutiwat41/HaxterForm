@@ -594,6 +594,10 @@ void MainWindow::on_bigBacktoHomeBTN_clicked()
 
 void MainWindow::on_printAgain_clicked()
 {
+    // set HN number
+    openCSV.HNNumber = this->HNNumber;
+    openCSV.exportCSV();
+
     printDocument();
 }
 

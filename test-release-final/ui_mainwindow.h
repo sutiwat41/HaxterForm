@@ -224,7 +224,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1270, 990);
+        MainWindow->resize(1270, 1000);
         MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -1227,7 +1227,7 @@ public:
 
         verticalLayout_9->addLayout(horizontalLayout_21);
 
-        verticalSpacer_22 = new QSpacerItem(20, 80, QSizePolicy::Minimum, QSizePolicy::Minimum);
+        verticalSpacer_22 = new QSpacerItem(20, 50, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         verticalLayout_9->addItem(verticalSpacer_22);
 
