@@ -470,9 +470,6 @@ public:
 "  padding: 15px;\n"
 "  padding-left: 40px;\n"
 "  padding-right: 40px;\n"
-"\n"
-"\n"
-"\n"
 "}\n"
 ""));
 
@@ -1282,7 +1279,8 @@ public:
         label_2->setObjectName(QString::fromUtf8("label_2"));
         sizePolicy6.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
         label_2->setSizePolicy(sizePolicy6);
-        label_2->setStyleSheet(QString::fromUtf8("font: 400 28pt \"JasmineUPC\";"));
+        label_2->setStyleSheet(QString::fromUtf8("font: 400 28pt \"JasmineUPC\";\n"
+"color: rgb(153, 102, 204);"));
         label_2->setWordWrap(true);
 
         horizontalLayout_16->addWidget(label_2);

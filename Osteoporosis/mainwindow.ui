@@ -501,9 +501,6 @@ font: 400 74pt &quot;JasmineUPC&quot;;
   padding: 15px;
   padding-left: 40px;
   padding-right: 40px;
-
-
-
 }
 </string>
             </property>
@@ -2053,7 +2050,8 @@ QPushButton:hover ,pressed{
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true">font: 400 28pt &quot;JasmineUPC&quot;;</string>
+             <string notr="true">font: 400 28pt &quot;JasmineUPC&quot;;
+color: rgb(153, 102, 204);</string>
             </property>
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;หุ่นยนต์...น้องกะทิ&lt;/span&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;เกิดจากความร่วมมือระหว่าง สาขาเวชศาสตร์นิวเคลียร์ ภาควิชารังสีวิทยา คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย &lt;br/&gt;และ ศูนย์เทคโนโลยีหุ่นยนต์ คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย&lt;br/&gt;ขอขอบพระคุณ ศ.นพ. ฉัตรเลิศ พงษ์ไชยกุล คณะแพทยศาสตร์ มหาวิทยาลัยขอนแก่น สำหรับคำแนะนำเกี่ยวกับแบบประเมิน&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>

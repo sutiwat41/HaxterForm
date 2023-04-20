@@ -90,7 +90,9 @@ MainWindow::MainWindow(QWidget *parent)
     m_barcodeTimer = new QTimer;
     connect(m_barcodeTimer, SIGNAL(timeout()), this,SLOT(showBarcode()));
 
-//    this->
+    //------------------- set scale size --------------------//
+    this->editScaleToFULL();
+
     //------------------- set maximum --------------------//
 //    this->showMaximized();
     this->showFullScreen();
@@ -259,12 +261,61 @@ void MainWindow::HNNumPressed()
 
 }
 
+void MainWindow::editScaleToFULL()
+{
+    qreal pixelRatio = this->devicePixelRatio();
+    //    qDebug() << "Pixel ratio:" << pixelRatio;
+
+    if(pixelRatio!=1){
+
+        // set question label
+        QString newSize = (to_string( (int)ui->questionLabel->font().pointSize()/(pixelRatio) ).c_str());
+        ui->questionLabel->setStyleSheet("font: 400 " + newSize +"pt \"JasmineUPC\";");
+        ui->yesButton->setStyleSheet("QPushButton{ \
+                                         font: 400 "+QString::number(60/pixelRatio)+"pt \"JasmineUPC\"; \
+                                         border-radius:20px; \
+                                         padding: 15px; \
+                                         padding-left: 40px; \
+                                         padding-right: 40px; \
+                                       }");
+        ui->noButton->setStyleSheet("QPushButton{ \
+                                         font: 400 "+QString::number(60/pixelRatio)+"pt \"JasmineUPC\"; \
+                                         border-radius:20px; \
+                                         padding: 15px; \
+                                         padding-left: 40px; \
+                                         padding-right: 40px; \
+                                       }");
+        ui->notSureButton->setStyleSheet("QPushButton{                  \
+                                    font: 400 "+QString::number(60/pixelRatio)+"pt \"JasmineUPC\";    \
+                                   border-radius:20px;              \
+                                  padding: 15px;                    \
+                                }");
+
+        ui->summaryTable->setStyleSheet("font: 400 "+QString::number(36/pixelRatio)+"pt \"JasmineUPC\"; text-align: center; \
+                        padding-right:"+QString::number(10/pixelRatio)+"px; \
+                        QHeaderView::section { padding-right: "+QString::number(50/pixelRatio)+"px; \
+                        background-color: #6ed0b3;}");
+//        ui->summaryTable->setStyleSheet("        font: 400 "+QString::number(36/pixelRatio)+"pt \" JasmineUPC\"; \
+//                                                text-align: center;");
+
+        qDebug() << ui->godImage->size();
+
+
+    }
+}
+
 void MainWindow::nextPage(){
     numPage++;
     player->stop();
     ui->stackedWidget->setStyleSheet(styleSheet);
-    ui->summaryTable->setStyleSheet("font: 400 36pt \"JasmineUPC\"; text-align: center;padding-right:10px; QHeaderView::section { padding-right: 50px; background-color: #6ed0b3;}");
-     cursor.setPos(100,100);
+    qreal pixelRatio = this->devicePixelRatio();
+    ui->summaryTable->setStyleSheet("font: 400 "+QString::number(36/pixelRatio)+"pt \"JasmineUPC\"; text-align: center; \
+                    padding-right:"+QString::number(10/pixelRatio)+"px; \
+                    QHeaderView::section { padding-right: "+QString::number(50/pixelRatio)+"px; \
+                    background-color: #6ed0b3;}");
+
+
+    cursor.setPos(100,100);
     if(numPage == openCSV.maxQuestion+1){
 //        qDebug() << "summary page";
         ui->stackedWidget->setCurrentWidget(ui->summaryPage);
@@ -329,6 +380,14 @@ void MainWindow::nextPage(){
 //            ui->
 //            ui->progressBar->setValue((int)((numPage-1)*100/openCSV.maxQuestion));
         }
+
+        qreal pixelRatio = this->devicePixelRatio();
+        if(pixelRatio != 1){
+
+
+//            this->editScaleToFULL();
+        }
+
     }
 
 }

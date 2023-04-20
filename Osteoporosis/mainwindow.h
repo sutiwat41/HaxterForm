@@ -96,6 +96,8 @@ private slots:
     void showDescription(const QString &link);
     void closeDescription();
     void HNNumPressed();
+    void editScaleToFULL();
+
 
     void on_startButton_clicked();
 
