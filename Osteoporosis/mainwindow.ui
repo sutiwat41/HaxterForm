@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1270</width>
+    <width>1410</width>
     <height>1000</height>
    </rect>
   </property>
@@ -1962,7 +1962,7 @@ QPushButton:hover ,pressed{
            <widget class="QPushButton" name="videoPlayerBox">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>1</horstretch>
+              <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
@@ -2054,7 +2054,7 @@ QPushButton:hover ,pressed{
 color: rgb(153, 102, 204);</string>
             </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;หุ่นยนต์...น้องกะทิ&lt;/span&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;เกิดจากความร่วมมือระหว่าง สาขาเวชศาสตร์นิวเคลียร์ ภาควิชารังสีวิทยา คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย &lt;br/&gt;และ ศูนย์เทคโนโลยีหุ่นยนต์ คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย&lt;br/&gt;ขอขอบพระคุณ ศ.นพ. ฉัตรเลิศ พงษ์ไชยกุล คณะแพทยศาสตร์ มหาวิทยาลัยขอนแก่น สำหรับคำแนะนำเกี่ยวกับแบบประเมิน&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:60pt;&quot;&gt;หุ่นยนต์...น้องกะทิ&lt;/span&gt;&lt;span style=&quot; font-size:30pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; font-size:30pt;&quot;&gt;เกิดจากความร่วมมือระหว่าง สาขาเวชศาสตร์นิวเคลียร์ ภาควิชารังสีวิทยา คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย &lt;br/&gt;และ ศูนย์เทคโนโลยีหุ่นยนต์ คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย&lt;br/&gt;ขอขอบพระคุณ ศ.นพ. ฉัตรเลิศ พงษ์ไชยกุล คณะแพทยศาสตร์ มหาวิทยาลัยขอนแก่น สำหรับคำแนะนำเกี่ยวกับแบบประเมิน&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -2602,8 +2602,8 @@ border: 2px solid rgb(110, 208, 179);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1270</width>
-     <height>22</height>
+     <width>1410</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
